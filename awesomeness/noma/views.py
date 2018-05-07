@@ -8,16 +8,15 @@ def index(request):
     '''
     function to display the index page
     '''
-    images = Image.objects.all()
-    return render(request, 'index.html', {"index": index})
+    image = Image.objects.all()
+    return render(request, 'index.html', {"image": image})
 
 
 def image(request, image_id):
 
-    images = Image.objects.get(id=image_id)
+    image = Image.objects.get(id=image_id)
 
-    return render(request, "image.html", {"images": images})
-
+    return render(request, "image.html", {"image": image})
 
 def search_results(request):
     '''
@@ -35,12 +34,3 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message": message})
-
-def get_gamers(request):
-    location_images = Image.gamers()
-    return render(request, 'display.html', {"images": display_images})
-
-
-def get_mixtape(request):
-    display_images = Image.mixtape()
-    return render(request, 'display.html', {"images": display_images})

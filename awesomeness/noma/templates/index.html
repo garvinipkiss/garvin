@@ -2,74 +2,39 @@
 {%extends 'base.html'%}
 {% block content %}
 {{block.super}}
-<div class="container" style="margin-top:60px;">
-  <!--looping through displays-->
-  {% for image_item in images %}
+<div class="container">
 
-<div class="row center-block">
-  <!-- displaying all images -->
+ <div class="row">
+   {# displaying index Image #}
+{% for image_item in image%}
+   <div class="col-xs-4 col-sm-4 col-md-4 mt-5">
+     <div class="card" style="width: 14rem;">
+     <img class="card-img-top" src="{{image_item.image.url}}" class="img-responsive" alt="{{image_item.image_name}}">
+       <div class="card-body">
 
-
-  <div class="col-md-4 col-md-4 col-md-4">
-    <!-- <p>{{display_item.name|upper}}</p>
-    <img style="width:750px; height:500px"src="{{image_item.image.url}}" class="img-responsive img-thumbnail" alt="responsive-image"> -->
-    <div class="uk-text-center">
-       <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
-           <img style="width:500px; height:250px"src="{{image_item.image.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
-           <div class="uk-position-center">
-               <div class="uk-transition-slide-top-small"><h4 class="uk-margin-remove" style="color:red;">{{image_item.image_name}}</h4></div>
-               <div class="uk-transition-slide-bottom-small"><h4 class="uk-margin-remove">{{image_item.category}}</h4></div>
-           </div>
+       <a<button type="button" href="{% url 'image' image_item.id %}" class="btn btn-dark float-right">details &rarr;</button></a>
        </div>
-       <p class="uk-margin-small-top">{{image_item.location}}</p>
-       <a class="uk-margin-small-top bbtn-red" href="image/{{image_item.id}}">More Details</a>
-   </div>
+     </div>
 
-  </div>
-  {% empty %}
+   </div>
+   {% empty %}
   <div class="row">
     <h1 class="text-center text-info">The End</h1>
   </div>
   {% endfor %}
-  <!--/footer-->
-     <div class="footer">
-       <div class="footer-top">
-          <div class="col-md-4 footer-grid">
-             <h4>services </h4>
-                <ul class="bottom">
-             <li>i create awesome web apps</li>
-             <li>review codes</li>
-           </ul>
-          </div>
-          <div class="col-md-4 footer-grid">
-             <h4>Message Us Now</h4>
-                  <ul class="bottom">
-               <li><i class="glyphicon glyphicon-home"></i>Available 24/7 </li>
-             <li><i class="glyphicon glyphicon-envelope"></i><a href="mailto:info@example.com">garvinipkiss@mail.com</a></li>
-             </ul>
-          </div>
-        <div class="col-md-4 footer-grid">
-             <h4>Address Location</h4>
-                 <ul class="bottom">
-               <li><i class="glyphicon glyphicon-map-marker"></i>Ngong Road, Ngonglane plaza, 1st Floor"moringa school" </li>
-             <li><i class="glyphicon glyphicon-earphone"></i>phone: (254) 700-509-740 </li>
-             </ul>
-          </div>
-        <div class="clearfix"> </div>
-       </div>
+  <style>
+     body{
+       background-image: url(./static/images/ghost.jpg);
+       background-attachment: fixed;
+       color: white;
+    }
+  </style>
+</body>
      </div>
+<center><footer>
   <div class="copy">
       <p>&copy; 2018 My Gallery collection. All Rights Reserved | Design by <a>Garvin</a> </p>
   </div>
-<!--/footer-->
+</footer></center>
 </div>
-<style>
-   body{
-     background-image: url(./static/images/ghost.jpg);
-     background-attachment: fixed;
-     color: white;
-  }
-</style>
-
-</body>
 {% endblock %}
