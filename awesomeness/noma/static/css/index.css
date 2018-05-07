@@ -1,7 +1,7 @@
 
 .navbar-default {
   /* height:auto; */
-  opacity: 30%;
+  opacity: 50%;
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width:768px @screen-sm-min) {  }
