@@ -7,8 +7,8 @@ urlpatterns=[
     url(r'^$', views.index, name='index'),
     url(r'^search', views.search_results, name='search_results'),
     url(r'^image/(\d+)', views.image, name='image'),
-    url(r'^gamers', views.get_gamers, name='gamers'),
-    url(r'^mixtape', views.get_mixtape, name='mixtape'),
+    url(r'^gamers/', views.get_gamers, name='gamers'),
+    url(r'^mixtape/', views.get_mixtape, name='mixtape'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
