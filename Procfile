@@ -1,1 +1,1 @@
-web: gunicorn awesomeness.wsgi
+web: gunicorn garvin.wsgi
