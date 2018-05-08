@@ -1,1 +1,1 @@
-web: gunicorn garvin.wsgi
+web: gunicorn noma.wsgi
