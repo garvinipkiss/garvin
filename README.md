@@ -10,7 +10,7 @@
 
 This is an app that allows users to view photos and details about them.
 
-#### Gallery Categories
+#### Search Categories
 * mixtape
 * gamers
 
