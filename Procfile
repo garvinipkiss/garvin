@@ -1,1 +1,1 @@
-web: gunicorn noma.wsgi
+web: gunicorn awesomeness.wsgi
