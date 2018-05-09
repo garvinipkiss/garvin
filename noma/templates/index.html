@@ -7,16 +7,50 @@
  <div class="row">
    {# displaying index Image #}
 {% for image_item in image%}
-   <div class="col-xs-4 col-sm-4 col-md-4 mt-5">
-     <div class="card" style="width: 14rem;">
-     <img class="card-img-top" src="{{image_item.image.url}}" class="img-responsive" alt="{{image_item.image_name}}">
-       <div class="card-body">
+<div class="imgs col-xs-4 col-sm-4 co   l-md-4 col-lg-4">
+<div class="view view-second">
+  <img class="modal_image" id="myImg" src="{{image_item.image.url}}" style="max-width: 100%;  height: auto; " class="img-fluid" alt="Image">
+  <div class="mask">
+      <div class="content">
+      <h2>about</h2>
+      <img class="modal_image" id="myImg"  src="{{image_item.image.url}}" alt="">
+      </div>
+    </div>
+</div>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div class="content">
+    <h1 id="push"> {{ image_item.image_name }}</h1>
+    <p>{{ image_item.description }}</p>
+    </div>
+  </div>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
 
-       <a href="{% url 'image' image_item.id %}" class="btn btn-blue float-right">about &rarr;</a>
-       </div>
-     </div>
 
-   </div>
+// Get the image and insert it inside the modal - use its "alt" text as a cap
+var img = document.getElementsByClassName('modal_image');
+for(var i=0; i<img.length; i++){
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img[i].addEventListener('click',function(){
+modal.style.display = "block";
+modalImg.src = this.src;
+})
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+modal.style.display = "none";
+}
+</script>
    {% empty %}
   <div class="row">
     <h1 class="text-center text-info">The End</h1>
