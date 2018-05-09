@@ -30,9 +30,9 @@ A user can;
 * $ git clone https://github.com/garvinipkiss/garvinawesomeness/
 * $ cd garvin
 * $ source virtual/bin/activate
-* Install all the necessary requirements by running pip install -r requirements.txt (Python 3).
+* Install all the necessary requirements by running pip install -r requirements.txt (Python 3.6.5).
 * $ ./manager.py runserver
-
+* $ heroku run python3.6 manage.py createsuperuser - to Create an admin.
 
 # Technologies Used
 
